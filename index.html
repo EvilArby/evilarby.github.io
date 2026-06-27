@@ -1,31 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>EvilArby</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVILARBY</title>
+
 <style>
-body{
-    background:#000;
-    color:#00ff00;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    margin:0;
-    font-family:Arial,sans-serif;
-    text-align:center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-h1{
-    font-size:5rem;
+
+body {
+    background: radial-gradient(circle at center, #06140c 0%, #000 70%);
+    color: #00ff66;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-p{
-    font-size:1.5rem;
+
+.container {
+    text-align: center;
+    z-index: 2;
+}
+
+.logo {
+    font-size: clamp(3rem, 12vw, 8rem);
+    font-weight: 900;
+    letter-spacing: 8px;
+    cursor: pointer;
+    text-shadow:
+        0 0 10px #00ff66,
+        0 0 25px #00ff66,
+        0 0 60px #00ff66;
+    animation: pulse 3s infinite;
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    opacity: 0.85;
+    letter-spacing: 2px;
+}
+
+.portal-menu {
+    margin-top: 35px;
+    display: none;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.portal-menu a {
+    color: #00ff66;
+    text-decoration: none;
+    border: 1px solid #00ff66;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-shadow: 0 0 10px #00ff66;
+    box-shadow: 0 0 12px rgba(0, 255, 102, 0.35);
+    transition: 0.25s;
+}
+
+.portal-menu a:hover {
+    background: #00ff66;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+    pointer-events: none;
+    z-index: 3;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+        filter: brightness(1.4);
+    }
 }
 </style>
+    .logo-img {
+    width: min(80vw, 700px);
+    cursor: pointer;
+    filter:
+        drop-shadow(0 0 10px #00ff66)
+        drop-shadow(0 0 30px #00ff66)
+        drop-shadow(0 0 70px #00ff66);
+    animation: pulse 3s infinite;
+}
 </head>
+
 <body>
-<div>
-<h1>EVILARBY</h1>
-<p>Enter the EvilVerse</p>
+
+<div class="container">
+    <img src="images/logo.png" class="logo-img" onclick="enterEvilVerse()" alt="EvilArby Logo">
+
+    <div class="subtitle" id="subtitle">
+        What exactly is this place?
+    </div>
+
+    <div class="portal-menu" id="portalMenu">
+        <a href="#">Arcade</a>
+        <a href="#">Workshop</a>
+        <a href="#">Electronics Lab</a>
+        <a href="#">AI Lab</a>
+        <a href="#">Vault</a>
+        <a href="#">Rabbit Hole</a>
+    </div>
 </div>
+
+<div class="scanlines"></div>
+
+<script>
+function enterEvilVerse() {
+    const subtitle = document.getElementById("subtitle");
+    const menu = document.getElementById("portalMenu");
+
+    subtitle.textContent = "Enter the EvilVerse";
+    menu.style.display = "flex";
+}
+</script>
+
 </body>
 </html>
