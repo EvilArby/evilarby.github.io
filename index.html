@@ -12,6 +12,16 @@
     box-sizing: border-box;
 }
 
+.logo-img {
+    width: min(80vw, 700px);
+    cursor: pointer;
+    filter:
+        drop-shadow(0 0 10px #00ff66)
+        drop-shadow(0 0 30px #00ff66)
+        drop-shadow(0 0 70px #00ff66);
+    animation: pulse 3s infinite;
+}
+
 body {
     background: radial-gradient(circle at center, #06140c 0%, #000 70%);
     color: #00ff66;
@@ -48,7 +58,7 @@ body {
 }
 
 .portal-menu {
-    margin-top: 35px;
+    margin-top: 50px;
     display: none;
     gap: 15px;
     justify-content: center;
@@ -98,22 +108,16 @@ body {
     }
 }
 </style>
-    .logo-img {
-    width: min(80vw, 700px);
-    cursor: pointer;
-    filter:
-        drop-shadow(0 0 10px #00ff66)
-        drop-shadow(0 0 30px #00ff66)
-        drop-shadow(0 0 70px #00ff66);
-    animation: pulse 3s infinite;
-}
+  
 </head>
 
 <body>
 
 <div class="container">
-    <img src="images/logo.png" class="logo-img" onclick="enterEvilVerse()" alt="EvilArby Logo">
-
+ <img src="images/logo.png"
+     class="logo-img"
+     onclick="window.location.href='evilverse.html'"
+     alt="EvilArby Logo">  
     <div class="subtitle" id="subtitle">
         What exactly is this place?
     </div>
