@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EvilVerse</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:
+        radial-gradient(circle at center,
+        #1a0033 0%,
+        #080010 35%,
+        #000000 100%);
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,sans-serif;
+}
+
+.title{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    color:white;
+    letter-spacing:8px;
+    font-size:2rem;
+    cursor:pointer;
+    text-decoration:none;
+    transition:all 0.3s ease;
+    text-shadow:
+        0 0 10px #00ffff,
+        0 0 20px #ff00ff;
+}
+
+/* Hover: glow intensifies */
+.title:hover{
+    text-shadow:
+        0 0 15px rgba(255,50,50,1),
+        0 0 35px rgba(255,50,50,0.8),
+        0 0 60px rgba(200,0,0,0.6);
+    transform:translateX(-50%) scale(1.08);
+}
+
+/* Click: bright pulse glow */
+.title:active{
+    text-shadow:
+        0 0 20px rgba(255,0,0,1),
+        0 0 50px rgba(255,0,0,0.9),
+        0 0 80px rgba(200,0,0,0.7);
+    transform:translateX(-50%) scale(0.95);
+}
+
+.logo-map{
+    position:relative;
+    width:min(90vw,900px);
+}
+
+.logo-map img{
+    width:100%;
+    display:block;
+    filter:
+        drop-shadow(0 0 10px #00ffff)
+        drop-shadow(0 0 30px #8a2be2)
+        drop-shadow(0 0 60px #ff00ff);
+    animation:floatLogo 6s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.hotspot{
+    position:absolute;
+    border-radius:50%;
+    cursor:pointer;
+    transition:all .25s ease;
+}
+
+.hotspot:hover{
+    background:rgba(255,255,255,0.08);
+    box-shadow:
+        0 0 15px #00ffff,
+        0 0 35px #ff00ff,
+        0 0 60px #8a2be2;
+}
+
+/* Workshop Blade */
+.workshop{
+    left:45%;
+    top:58%;
+    width:10%;
+    height:30%;
+    border-radius:40%;
+}
+
+.back{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    color:#00ffff;
+    text-decoration:none;
+    opacity:.7;
+}
+
+.back:hover{
+    opacity:1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="title">EVILVERSE</div>
+
+<div class="logo-map">
+<img src="images/3Dlogo.png" alt="EvilVerse Logo">
+
+<div class="hotspot eye" onclick="alert('EvilVerse Hub')"></div>
+<div class="hotspot arcade" onclick="alert('Arcade')"></div>
+<div class="hotspot vault" onclick="alert('Vault')"></div>
+<div class="hotspot electronics" onclick="alert('Electronics Lab')"></div>
+<div class="hotspot rabbit" onclick="alert('Rabbit Hole')"></div>
+<div class="hotspot ai" onclick="alert('AI Lab')"></div>
+<div class="hotspot workshop" onclick="alert('Workshop')"></div>
+</div>
+
+<a href="index.html" class="back">← Return</a>
+
+</body>
+</html>
