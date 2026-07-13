@@ -26,11 +26,42 @@ body{
     font-family:Arial,sans-serif;
 }
 
-.title{
+.title-container{
     position:fixed;
     top:20px;
     left:50%;
     transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.title-emblem{
+    width:60px;
+    height:60px;
+    filter:
+        drop-shadow(0 0 10px #00ffff)
+        drop-shadow(0 0 20px #ff00ff);
+    transition:all 0.3s ease;
+}
+
+.title-emblem.before{
+    transform:scaleX(1);
+}
+
+.title-emblem.after{
+    transform:scaleX(-1);
+}
+
+.title-container:hover .title-emblem{
+    filter:
+        drop-shadow(0 0 15px rgba(255,50,50,1))
+        drop-shadow(0 0 35px rgba(255,50,50,0.8))
+        drop-shadow(0 0 60px rgba(200,0,0,0.6));
+    transform:scale(1.1);
+}
+
+.title{
     color:white;
     letter-spacing:8px;
     font-size:2rem;
@@ -43,21 +74,21 @@ body{
 }
 
 /* Hover: glow intensifies */
-.title:hover{
+.title-container:hover .title{
     text-shadow:
         0 0 15px rgba(255,50,50,1),
         0 0 35px rgba(255,50,50,0.8),
         0 0 60px rgba(200,0,0,0.6);
-    transform:translateX(-50%) scale(1.08);
+    transform:scale(1.08);
 }
 
 /* Click: bright pulse glow */
-.title:active{
+.title-container:active .title{
     text-shadow:
         0 0 20px rgba(255,0,0,1),
         0 0 50px rgba(255,0,0,0.9),
         0 0 80px rgba(200,0,0,0.7);
-    transform:translateX(-50%) scale(0.95);
+    transform:scale(0.95);
 }
 
 .logo-map{
@@ -125,7 +156,11 @@ body{
 
 <body>
 
-<div class="title">EVILVERSE</div>
+<div class="title-container">
+    <img src="EvilEmblem.png" alt="Evil Emblem" class="title-emblem before">
+    <div class="title">EVILVERSE</div>
+    <img src="EvilEmblem.png" alt="Evil Emblem" class="title-emblem after">
+</div>
 
 <div class="logo-map">
 <img src="EvilVersemain.jpeg" alt="EvilVerse Logo">
